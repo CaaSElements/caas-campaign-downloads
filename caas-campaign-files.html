@@ -1,0 +1,80 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
+<!--
+`caas-campaign-files`
+Polymer Campaign Downloadable Files Element for Crowdfunding as a Service Solutions
+
+@demo demo/index.html 
+-->
+
+<dom-module id="caas-campaign-files">
+  <template>
+
+    <iron-ajax
+      id="getCampaignFiles"
+      url="[[apiEndpoint]]/campaigns/[[campaignId]]/publicfiles"
+      handle-as="json"
+      method="GET"
+      last-response="{{_apiData}}"
+      debounce-duration="3000"
+    ></iron-ajax>
+
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'caas-campaign-files',
+
+      properties: {
+
+        apiEndpoint: {
+          type: String,
+          value: null
+        },
+
+        campaignId: {
+          type: String,
+          value: null
+        },
+
+        files: {
+          type: Array,
+          computed: '_computeFiles(_apiData.files.*)'
+        }
+
+      },
+
+      observers: [
+        '_getApiData(apiEndpoint, campaignId)'
+      ],
+
+      _getApiData: function(apiEndpoint, campaignId) {
+        if(!apiEndpoint && campaignId) return;
+        this.$.getCampaignFiles.generateRequest();
+      },
+
+      _computeFiles(file) {
+        if(!file) return null;
+        return file.base.map(this._parseFileObject);
+      },
+
+      _parseFileObject: function(file) {
+        return {
+          name: file.fileName,
+          url: file.url,
+          description: file.description,
+          size: file.fileSize
+        }
+      }
+
+    });
+  </script>
+</dom-module>
