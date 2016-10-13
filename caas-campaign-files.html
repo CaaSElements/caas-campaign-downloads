@@ -63,7 +63,7 @@ Polymer Campaign Downloadable Files Element for Crowdfunding as a Service Soluti
       },
 
       _computeFiles(file) {
-        if(!file) return null;
+        if(!file || !file.base || !file.base.map) return [];
         return file.base.map(this._parseFileObject);
       },
 
