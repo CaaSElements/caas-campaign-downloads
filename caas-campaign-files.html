@@ -47,7 +47,8 @@ Polymer Campaign Downloadable Files Element for Crowdfunding as a Service Soluti
 
         files: {
           type: Array,
-          computed: '_computeFiles(_apiData.files.*)'
+          computed: '_computeFiles(_apiData.files.*)',
+          notify: true
         }
 
       },
