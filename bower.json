@@ -1,7 +1,7 @@
 {
   "name": "caas-campaign-downloads",
   "version": "0.1.0",
-  "description": "Polymer Campaign Downloads Files Element for Crowdfunding as a Service Solutions",
+  "description": "Polymer Campaign Downloads Element for Crowdfunding as a Service Solutions",
   "main": "caas-campaign-downloads.html",
   "authors": [
     "Wouter Vroege"
