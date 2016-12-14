@@ -1,8 +1,8 @@
 {
-  "name": "caas-campaign-files",
+  "name": "caas-campaign-downloads",
   "version": "0.1.0",
-  "description": "Polymer Campaign Downloadable Files Element for Crowdfunding as a Service Solutions",
-  "main": "caas-campaign-files.html",
+  "description": "Polymer Campaign Downloads Files Element for Crowdfunding as a Service Solutions",
+  "main": "caas-campaign-downloads.html",
   "authors": [
     "Wouter Vroege"
   ],
@@ -12,9 +12,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com:CaaSElements/caas-campaign-files.git"
+    "url": "git://github.com:CaaSElements/caas-campaign-downloads.git"
   },
-  "homepage": "https://github.com/CaaSElements/caas-campaign-files",
+  "homepage": "https://github.com/CaaSElements/caas-campaign-downloads",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.6.0",
     "iron-ajax": "PolymerElements/iron-ajax#^1.4.3"

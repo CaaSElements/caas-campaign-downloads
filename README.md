@@ -1,6 +1,6 @@
-# \<caas-campaign-files\>
+# \<caas-campaign-downloads\>
 
-Polymer Campaign Downloadable Files Element for Crowdfunding as a Service Solutions
+Polymer Campaign Downloads Element for Crowdfunding as a Service Solutions
 
 ## Install the Polymer-CLI
 
