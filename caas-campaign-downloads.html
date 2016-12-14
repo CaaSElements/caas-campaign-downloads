@@ -36,18 +36,16 @@ Polymer Campaign Downloads Element for Crowdfunding as a Service Solutions
       properties: {
 
         apiEndpoint: {
-          type: String,
-          value: null
+          type: String
         },
 
         campaignId: {
-          type: String,
-          value: null
+          type: String
         },
 
-        files: {
+        items: {
           type: Array,
-          computed: '_computeFiles(_apiData.files.*)',
+          computed: '_computeItems(_apiData.files.*)',
           notify: true
         }
 
@@ -58,16 +56,15 @@ Polymer Campaign Downloads Element for Crowdfunding as a Service Solutions
       ],
 
       _getApiData: function(apiEndpoint, campaignId) {
-        if(!apiEndpoint && campaignId) return;
         this.$.getCampaignFiles.generateRequest();
       },
 
-      _computeFiles(file) {
+      _computeItems(file) {
         if(!file || !file.base || !file.base.map) return [];
-        return file.base.map(this._parseFileObject);
+        return file.base.map(this._parseItemObject);
       },
 
-      _parseFileObject: function(file) {
+      _parseItemObject: function(file) {
         return {
           name: file.fileName,
           url: file.url,
