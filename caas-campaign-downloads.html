@@ -68,6 +68,7 @@ Polymer Campaign Downloads Element for Crowdfunding as a Service Solutions
         return {
           name: this._parseItemName(file.fileName),
           url: file.url,
+          type: this._parseItemExtension(file.fileName),
           description: file.description,
           size: this._parseItemSize(file.fileSize),
         }
@@ -75,6 +76,10 @@ Polymer Campaign Downloads Element for Crowdfunding as a Service Solutions
 
       _parseItemName: function(fileName) {
         return fileName.replace(/(_|\-)/g, ' ').replace(/(^.*?)\.[a-zA-Z]+$/, '$1')
+      },
+
+      _parseItemExtension: function(fileName) {
+        return fileName.replace(/(^.*?\.)([a-zA-Z]+)$/, '$2')
       },
 
       _parseItemSize: function(size) {
