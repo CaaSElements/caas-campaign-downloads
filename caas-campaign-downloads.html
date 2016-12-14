@@ -69,12 +69,20 @@ Polymer Campaign Downloads Element for Crowdfunding as a Service Solutions
           name: this._parseItemName(file.fileName),
           url: file.url,
           description: file.description,
-          size: file.fileSize
+          size: this._parseItemSize(file.fileSize),
         }
       },
 
       _parseItemName: function(fileName) {
         return fileName.replace(/(_|\-)/g, ' ').replace(/(^.*?)\.[a-zA-Z]+$/, '$1')
+      },
+
+      _parseItemSize: function(size) {
+        return {
+          bytes: size,
+          kilobytes: parseFloat((size / 1000).toFixed(0)),
+          megabytes: parseFloat((size / 1000 / 1000).toFixed(1))
+        }
       }
 
     });
